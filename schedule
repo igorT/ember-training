@@ -6,7 +6,7 @@ Intro
   Store, Model, Serializer/Adapter,
   Default Adapters, Serializers
   Adapter Api, Serializer Api
-  Pretender
+  Http-mock
 -> 20 min
 
 JqueryAjax(them)
