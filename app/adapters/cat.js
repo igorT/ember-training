@@ -10,7 +10,10 @@ export default DS.Adapter.extend({
     });
   },
   find: function(store, type, id, record){
-    return $.get('api/cat/' + id);
+    return $.get('api/cat/' + id).then(function(cat){
+      cat.ownerName = cat.owner_name;
+      return cat;
+    });
   },
   deleteRecord: function(store, type, record){
     return $.ajax({
