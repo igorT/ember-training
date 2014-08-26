@@ -4,7 +4,7 @@
     {{#link-to 'cat' this}}
       <h2>{{name}}</h2>
     {{/link-to}}
-   <button {{action 'delete' this}}>Remove cat</button>
+   <button {{action 'delete' this}}>Remove {{name}}</button>
 
     <img {{bind-attr src=image}} style="height:250px">
   </div>
