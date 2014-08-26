@@ -5,8 +5,8 @@ module.exports = function(app) {
     res.send([
       {name: 'cat1', image: "http://24.media.tumblr.com/tumblr_m4j2e7Fd7M1qejbiro1_1280.jpg"},
       {name: 'cat2', image: "http://24.media.tumblr.com/tumblr_lxrexcSVCh1qbd47zo1_1280.jpg"},
-      {name: 'cat3', image: "http://24.media.tumblr.com/tumblr_lxrexcSVCh1qbd47zo1_1280.jpg"},
-      {name: 'cat4', image: "http://25.media.tumblr.com/tumblr_llnbymSwxD1qjahcpo1_400.jpg"},
+      {name: 'cat3', image: "http://24.media.tumblr.com/tumblr_mc1qt6y4ks1qhwmnpo1_500.jpg"},
+      {name: 'cat4', image: "http://25.media.tumblr.com/tumblr_lyxwfwf4AF1r6b7kmo1_500.jpg"},
       {name: 'cat5', image: "http://25.media.tumblr.com/tumblr_m2q8lrcojk1qfvoueo1_1280.jpg"},
       {name: 'cat6', image: "http://25.media.tumblr.com/tumblr_m0y17zzx0i1qjev1to1_500.jpg"},
       {name: 'cat7', image: "http://24.media.tumblr.com/x3Rmp1Hjoou8ifx3UMrV8ILfo1_500.jpg"},
