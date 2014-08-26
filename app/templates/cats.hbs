@@ -1,0 +1,9 @@
+
+{{#each model}}
+  <div style="display:inline-block">
+    {{#link-to 'cat' this}}
+      <h2>{{name}}</h2>
+    {{/link-to}}
+    <img {{bind-attr src=image}} style="height:250px">
+  </div>
+{{/each}}

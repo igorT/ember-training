@@ -1,8 +1,5 @@
 module.exports = function(app) {
-  var express = require('express');
-  var catRouter = express.Router();
-  catRouter.get('/', function(req, res) {
-    res.send([
+  var data = [
       {id:"1",  name: 'cat1', image: "http://24.media.tumblr.com/tumblr_m4j2e7Fd7M1qejbiro1_1280.jpg"},
       {id: "2", name: 'cat2', image: "http://24.media.tumblr.com/tumblr_lxrexcSVCh1qbd47zo1_1280.jpg"},
       {id: "3", name: 'cat3', image: "http://24.media.tumblr.com/tumblr_mc1qt6y4ks1qhwmnpo1_500.jpg"},
@@ -13,7 +10,20 @@ module.exports = function(app) {
       {id: "8",  name: 'cat8', image: "http://25.media.tumblr.com/tumblr_lvc0n6lEl41qe42cbo1_1280.png"},
       {id: "9",  name: 'cat9', image: "http://24.media.tumblr.com/tumblr_lx7vafr8cy1r7lwjko1_250.gif"},
       {id: "10", name: 'cat10', image: "http://25.media.tumblr.com/tumblr_lp9ovcC5Id1qiatdho1_1280.jpg"},
-    ]);
+    ];
+  var express = require('express');
+  var catRouter = express.Router();
+  catRouter.get('/', function(req, res) {
+    res.send(data);
+  });
+  catRouter.get('/:id', function(req, res) {
+    var id = req.params.id;
+    id = parseInt(id);
+    if (id > 10 || id < 1){
+      //send error
+    } else {
+      res.send(data[id]);
+    }
   });
   app.use('/api/cat', catRouter);
 };

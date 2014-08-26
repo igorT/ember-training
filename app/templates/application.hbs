@@ -1,6 +1,3 @@
-{{#each model}}
-  <div style="display:inline-block">
-    <h2>{{name}}</h2>
-    <img {{bind-attr src=image}} style="height:250px">
-  </div>
-{{/each}}
+{{#link-to 'cats'}}See all the cats{{/link-to}}
+{{outlet}}
+
