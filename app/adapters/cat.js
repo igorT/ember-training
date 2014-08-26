@@ -2,7 +2,12 @@ import DS from 'ember-data';
 
 export default DS.Adapter.extend({
   findAll: function(){
-    return $.get('api/cat');
+    return $.get('api/cat').then(function(data) {
+      data.forEach(function(cat) {
+        cat.ownerName = cat.owner_name;
+      });
+      return data;
+    });
   },
   find: function(store, type, id, record){
     return $.get('api/cat/' + id);
