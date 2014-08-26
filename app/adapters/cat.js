@@ -23,5 +23,15 @@ export default DS.Adapter.extend({
         image: record.get('image')
       }
     });
+  },
+  createRecord: function(store, type, record) {
+    return $.ajax({
+      url: 'api/cat/',
+      type: 'post',
+      data: {
+        name: record.get('name'),
+        image: record.get('image')
+      }
+    });
   }
 });

@@ -53,5 +53,11 @@ module.exports = function(app) {
       res.send();
     }
   });
+  catRouter.post('/', function(req, res) {
+    var cat = req.body;
+    cat.id = data.length;
+    data.push(cat);
+    res.send(cat);
+  });
   app.use('/api/cat', catRouter);
 };
