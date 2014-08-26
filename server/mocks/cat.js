@@ -40,5 +40,18 @@ module.exports = function(app) {
       res.send();
     }
   });
+  catRouter.put('/:id', function(req, res) {
+    var id = req.params.id;
+    id = parseInt(id);
+    for(var i = 0; i < data.length; i++) {
+      if (data[i].id == id) {
+        data[i] =  req.body;
+        res.send();
+        return;
+      }
+      //send error
+      res.send();
+    }
+  });
   app.use('/api/cat', catRouter);
 };
