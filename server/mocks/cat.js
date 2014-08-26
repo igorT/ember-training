@@ -22,8 +22,19 @@ module.exports = function(app) {
     if (id > 10 || id < 1){
       //send error
     } else {
-      res.send(data[id]);
+      res.send(data[id-1]);
     }
   });
+  catRouter.delete('/:id', function(req, res) {
+    var id = req.params.id;
+    id = parseInt(id);
+    if (id > 10 || id < 1){
+      //send error
+    } else {
+      data.splice(id-1, 1);
+      res.send();
+    }
+  });
+  app.use('/api/cat', catRouter);
   app.use('/api/cat', catRouter);
 };
