@@ -1,5 +1,4 @@
 Hello we are cats
 {{#each cat in model}}
-  {{#link-to 'cat' cat}} {{cat.name}}{{/link-to}}
-  <img {{bind-attr src=cat.image}} style="height:200px">
+  {{cat-component cat=cat}}
 {{/each}}

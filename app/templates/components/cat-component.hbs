@@ -1,0 +1,14 @@
+  <div style="display:'inline-block'">
+     {{#if isEditing}}
+        {{input value=cat.name}}
+      {{else}}
+        {{#link-to 'cat' cat}} {{cat.name}}{{/link-to}}
+      {{/if}}
+    <img {{bind-attr src=cat.image}} style="height:200px">
+     {{#if isEditing}}
+        <button {{action 'save'}}>Save</button>
+      {{else}}
+        <button {{action 'edit'}}>Edit</button>
+      {{/if}}
+    <img {{bind-attr src=cat.image}} style="height:200px">
+  </div>
