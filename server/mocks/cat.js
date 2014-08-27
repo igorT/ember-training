@@ -57,6 +57,10 @@ module.exports = function(app) {
   catRouter.put('/:id', function(req, res) {
     var id = req.params.id;
     id = parseInt(id);
+    if(!req.body.name) {
+      res.status(422).send({errors: {name: 'Name cannot be null'}});
+      return;
+    }
     for(var i = 0; i < data.length; i++) {
       if (data[i].id == id) {
         data[i] =  req.body;
@@ -68,10 +72,16 @@ module.exports = function(app) {
   });
 
   catRouter.post('/', function(req, res) {
+    if(!req.body.name) {
+      res.status(422).send({errors: {name: 'Name cannot be null'}});
+      return;
+    }
+  for(var i = 0; i < data.length; i++) {
     var cat = req.body;
     cat.id = data.length;
     data.push(cat);
     res.send(cat);
+  }
   });
   app.use('/api/cat', catRouter);
 };
