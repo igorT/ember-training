@@ -31,6 +31,7 @@ module.exports = function(app) {
     id = parseInt(id);
     for(var i = 0; i < data.length; i++) {
       if (data[i].id == id) {
+        /*
         if (data[i].owner_name === 'Igor') {
           res.status(403).send("Don't touch Igor's cats");
           return;
@@ -46,6 +47,7 @@ module.exports = function(app) {
             data[j].best_friend = null;
           }
         }
+        */
         data.splice(i, 1);
         res.send();
         return;
