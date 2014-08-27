@@ -1,8 +1,8 @@
 module.exports = function(app) {
   var data = [
-      {id:"1",  name: 'dog1', image: "e7Fd7M1qejbiro1_1280.jpg", likes_cats: true, plays_fetch: false},
-      {id: "2", name: 'dog2', image: "http://24.media.tumblr.com/tumblr_lxrexcSVCh1qbd47zo1_1280.jpg", likes_cats: false, plays_fetch: true},
-      {id: "3", name: 'dog3', image: "http://24.media.tumblr.com/x3Rmp1Hjoou8ifx3UMrV8ILfo1_500.jpg", likes_cats: true, plays_fetch: true},
+      {id:"1",  name: 'dog1', image: "e7Fd7M1qejbiro1_1280.jpg", BACKEND_DEVS_ARE_AWESOME_likes_cats: true, plays_fetch: false},
+      {id: "2", name: 'dog2', image: "http://24.media.tumblr.com/tumblr_lxrexcSVCh1qbd47zo1_1280.jpg", BACKEND_DEVS_ARE_AWESOME_likes_cats: false, plays_fetch: true},
+      {id: "3", name: 'dog3', image: "http://24.media.tumblr.com/x3Rmp1Hjoou8ifx3UMrV8ILfo1_500.jpg", BACKEND_DEVS_ARE_AWESOME_likes_cats: true, plays_fetch: true},
     ];
   var express = require('express');
   var dogRouter = express.Router();
