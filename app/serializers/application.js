@@ -36,6 +36,7 @@ export default Ember.Object.extend({
 
   serialize: function(record, options) {
     var hash = {};
+    hash.relationships = {};
     if (record.get('id')) {
       hash.id = record.get('id');
     }
@@ -43,6 +44,22 @@ export default Ember.Object.extend({
       var serverKey = key.decamelize();
       hash[serverKey] = record.get(key);
     });
+    record.constructor.eachRelationship(function(key, rel) {
+      var serverKey = key.decamelize();
+      if (rel.kind === 'hasMany') {
+        hash.relationships[serverKey] = record.get(key).map(function(foreignRecord) {
+          return foreignRecord.get('id');
+        });
+      } else if (rel.kind === 'belongsTo') {
+        var foreignKey = null;
+        var foreignRecord = record.get(key);
+        if (foreignRecord) {
+          foreignKey = foreignRecord.get('id');
+        }
+       hash.relationships[serverKey] = foreignKey;
+      }
+    });
+
     return hash;
   }
 });
