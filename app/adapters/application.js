@@ -2,8 +2,14 @@ import DS from 'ember-data';
 
 export default DS.Adapter.extend({
   namespace: 'api',
+  pathForType: function(type) {
+    return type.typeKey;
+  },
   buildUrl: function(type, id, record){
-    return this.namespace+'/'+type.typeKey;
+    if (!id) {
+      return this.namespace + '/'+ this.pathForType(type);
+    }
+    return this.namespace + '/'+ this.pathForType(type) + '/' + id;
   },
 
   findAll: function(store, type){
@@ -12,27 +18,31 @@ export default DS.Adapter.extend({
   },
 
   find: function(store, type, id, record){
-    return $.get('api/cat/' + id).then(function(cat){
-      cat.ownerName = cat.owner_name;
-      return cat;
-    });
+    var url = this.buildUrl(type, id);
+    return $.get(url);
   },
+
   deleteRecord: function(store, type, record){
+    var url = this.buildUrl(type, record.get('id'));
     return $.ajax({
-      url: 'api/cat/' + record.get('id'),
+      url: url,
       type: 'delete'
     });
   },
+
   updateRecord: function(store, type, record){
+    var url = this.buildUrl(type, record.get('id'));
     return $.ajax({
-      url: 'api/cat/' + record.get('id'),
+      url: url,
       type: 'put',
       data: record.serialize()
     });
   },
+
   createRecord: function(store, type, record) {
+    var url = this.buildUrl(type, record.get('id'));
     return $.ajax({
-      url: 'api/cat/',
+      url: url,
       type: 'post',
       data: record.serialize()
     });
