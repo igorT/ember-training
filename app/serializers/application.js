@@ -1,4 +1,5 @@
 import DS from 'ember-data';
+import Ember from 'ember';
 
 export default Ember.Object.extend({
   extract: function(store, type, payload, id, requestType) {
@@ -13,7 +14,17 @@ export default Ember.Object.extend({
   },
 
   normalize: function(type, hash) {
+    Ember.merge(hash, hash.relationships);
+    delete hash.relationships;
     type.eachAttribute(function(key) {
+      var serverKey = key.decamelize();
+      if (serverKey !== key) {
+        hash[key] = hash[serverKey];
+        delete hash[serverKey];
+      }
+    });
+
+    type.eachRelationship(function(key, kind) {
       var serverKey = key.decamelize();
       if (serverKey !== key) {
         hash[key] = hash[serverKey];
