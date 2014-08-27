@@ -1,0 +1,17 @@
+{{#if isEditing}}
+  {{input value=dog.name}}
+  <button {{action 'save' dog}}>Update</button>
+{{else}}
+  {{#link-to 'dog' dog}}
+    <h2>{{dog.name}}</h2>
+  {{/link-to}}
+  {{#if dog.playsFetch}}
+    <div><h3>I play fetch</h3></div>
+   {{/if}}
+  {{#if dog.likesCats}}
+    <div><h3>I like cats</h3></div>
+   {{/if}}
+  <button {{action 'edit' dog}}>Edit</button>
+{{/if}}
+<button {{action 'delete' dog}}>Remove {{dog.name}}</button>
+<img {{bind-attr src=dog.image}} style="height:250px">

@@ -1,13 +1,14 @@
+<div>
+  <div>
+    Add a dog:
+    Name: {{input value=newName}}
+    Image: {{input value=newImage}}
+    <button {{action 'createDog' dog}}>Save</button>
+  </div>
+</div>
 
-{{#each dog in model}}
+{{#each model}}
   <div style="display:inline-block">
-    <h2>{{dog.name}}</h2>
-    {{#if dog.playsFetch}}
-      <h2>Plays Fetch</h2>
-    {{/if}}
-    {{#if dog.likesCats}}
-      <h2>Likes cats</h2>
-    {{/if}}
-    <img {{bind-attr src=dog.image}} style="height:250px">
+    {{dog-component dog=this delete='delete'}}
   </div>
 {{/each}}

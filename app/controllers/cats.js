@@ -4,22 +4,13 @@ export default Ember.ArrayController.extend({
   newName: '',
   newImage: '',
   actions: {
-    createCat: function() {
-      var cat = this.store.createRecord('cat');
-      cat.set('name', this.get('newName'));
-      cat.set('image', this.get('newImage'));
+    createDog: function() {
+      var dog = this.store.createRecord('dog');
+      dog.set('name', this.get('newName'));
+      dog.set('image', this.get('newImage'));
       this.set('newName', '');
       this.set('newImage', '');
-      cat.save();
+      dog.save();
     }
-    /*
-    delete: function(cat) {
-      cat.deleteRecord();
-      cat.save();
-    },
-    edit: function(cat) {
-      
-    }
-    */
   }
 });

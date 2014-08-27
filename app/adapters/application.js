@@ -1,16 +1,16 @@
 import DS from 'ember-data';
-import ApplicationAdapter from './application';
 
-export default ApplicationAdapter.extend({
-  /*
-  findAll: function(){
-    return $.get('api/cat').then(function(data) {
-      data.forEach(function(cat) {
-        cat.ownerName = cat.owner_name;
-      });
-      return data;
-    });
+export default DS.Adapter.extend({
+  namespace: 'api',
+  buildUrl: function(type, id, record){
+    return this.namespace+'/'+type.typeKey;
   },
+
+  findAll: function(store, type){
+    var url = this.buildUrl(type);
+    return $.get(url);
+  },
+
   find: function(store, type, id, record){
     return $.get('api/cat/' + id).then(function(cat){
       cat.ownerName = cat.owner_name;
@@ -37,5 +37,4 @@ export default ApplicationAdapter.extend({
       data: record.serialize()
     });
   }
-  */
 });
