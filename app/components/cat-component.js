@@ -2,6 +2,7 @@ import Ember from 'ember';
 
 export default Ember.Component.extend({
   isEditing: false,
+  hasFriends: Ember.computed.gt('catFriends.length', 0),
   actions: {
     delete: function(cat){
       cat.deleteRecord();

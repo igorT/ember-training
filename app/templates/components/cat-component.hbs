@@ -10,3 +10,9 @@
 {{/if}}
 <button {{action 'delete' cat}}>Remove {{cat.name}}</button>
 <img {{bind-attr src=cat.image}} style="height:250px">
+{{#if hasFriends}}
+  <h3> Friends: </h3>
+  {{#each cat.catFriends}}
+    I am friends with: {{name}}
+  {{/each}}
+{{/if}}
