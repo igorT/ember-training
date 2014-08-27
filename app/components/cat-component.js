@@ -6,7 +6,13 @@ export default Ember.Component.extend({
   actions: {
     delete: function(cat){
       cat.deleteRecord();
-      cat.save();
+      cat.save().then(null, function(error) {
+        alert(error.responseText);
+        var id = cat.get('id');
+        var store = cat.get('store');
+        cat.unloadRecord();
+        store.find('cat', id);
+      });
     },
     edit: function() {
       this.set('isEditing', true);
