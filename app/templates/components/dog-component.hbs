@@ -1,6 +1,14 @@
 {{#if isEditing}}
-  {{input value=dog.name}}
-  <button {{action 'save' dog}}>Update</button>
+  <div>
+  Name:  {{input value=dog.name}}
+  </div>
+  <div>
+  Likes Cats:  {{input checked=dog.likesCats type='checkbox'}}
+  </div>
+  <div>
+  Plays Fetch:  {{input checked=dog.playsFetch type='checkbox'}}
+  </div>
+  <button {{action 'save' dog}}>Save</button>
 {{else}}
   {{#link-to 'dog' dog}}
     <h2>{{dog.name}}</h2>
