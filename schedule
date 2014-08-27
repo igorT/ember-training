@@ -49,6 +49,7 @@ Generic normalization/serialization(them)
 
 Relationships(me)
   Format
+  Add the serializerFor
   Implement generic normalization for relationships
 
 Relationships(them)
@@ -63,14 +64,6 @@ Serializer.attrs(me)
 Serializer.attrs(them)
   attrs for key
 
-Transforms(me)
-  Explain use
-  Add a Date Transform
-  Make Normalize transform work
-
-Transforms(them)
-  Serialize transforms
-
 =========================================================
 Error Handling(me):
   Return errors
@@ -83,10 +76,19 @@ Sideloading(me):
 
 Move the extraction into the serializer
 
+Add serializeIntoHash
+
 Metadata:
   Add an extraction for metadata
 
-Add serializeIntoHash
+Transforms(me)
+  Explain use
+  Add a Date Transform
+  Make Normalize transform work
+
+Transforms(them)
+  Serialize transforms
+
 
 FindMany:
   Show feature
