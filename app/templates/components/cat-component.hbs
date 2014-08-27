@@ -2,12 +2,13 @@
      {{#if isEditing}}
         {{input value=cat.name}}
       {{else}}
+        Owner is {{cat.ownerName}}
         {{#link-to 'cat' cat}} {{cat.name}}{{/link-to}}
       {{/if}}
      {{#if isEditing}}
         <button {{action 'save'}}>Save</button>
       {{else}}
-        <button {{action 'edit'}}>Edit</button>
+        <button {{bind-attr disabled=disableEdit}} {{action 'edit'}}>Edit</button>
       {{/if}}
     <img {{bind-attr src=cat.image}} style="height:200px">
   </div>
