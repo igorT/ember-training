@@ -4,7 +4,6 @@
       {{else}}
         {{#link-to 'cat' cat}} {{cat.name}}{{/link-to}}
       {{/if}}
-    <img {{bind-attr src=cat.image}} style="height:200px">
      {{#if isEditing}}
         <button {{action 'save'}}>Save</button>
       {{else}}
