@@ -31,5 +31,18 @@ export default DS.Adapter.extend({
       contentType: 'application/json',
       processData: false
    });
+  },
+  createRecord: function(store, type, record) {
+    return Ember.$.ajax({
+      type: 'post',
+      url: '/api/cats/',
+      data: JSON.stringify({
+        name: record.get('name'),
+        owner_name: record.get('ownerName'),
+        image: record.get('image'),
+      }),
+      contentType: 'application/json',
+      processData: false
+   });
   }
 });
