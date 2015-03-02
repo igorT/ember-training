@@ -1,15 +1,14 @@
-
 <div>
   <div>
-    Add a cat:
+    Add a dog:
     Name: {{input value=newName}}
     Image: {{input value=newImage}}
-    <button {{action 'createCat' cat}}>Save</button>
+    <button {{action 'createDog' dog}}>Save</button>
   </div>
 </div>
 
 {{#each model}}
   <div style="display:inline-block">
-    {{cat-component cat=this delete='delete'}}
+    {{dog-component dog=this delete='delete'}}
   </div>
 {{/each}}
