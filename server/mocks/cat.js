@@ -57,6 +57,7 @@ module.exports = function(app) {
   });
 
   catRouter.put('/:id', function(req, res) {
+    console.log(req);
     var id = req.params.id;
     id = parseInt(id);
     if(!req.body.name) {
@@ -85,5 +86,5 @@ module.exports = function(app) {
     res.send(cat);
   }
   });
-  app.use('/api/cat', catRouter);
+  app.use('/api/cats', catRouter);
 };
