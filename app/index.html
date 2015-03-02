@@ -7,20 +7,16 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    {{BASE_TAG}}
+    {{content-for 'head'}}
 
     <link rel="stylesheet" href="assets/vendor.css">
     <link rel="stylesheet" href="assets/ember-training.css">
+    {{content-for 'head-footer'}}
   </head>
   <body>
-    <script>
-      window.EmberTrainingENV = {{ENV}};
-      window.EmberENV = window.EmberTrainingENV.EmberENV;
-    </script>
+    {{content-for 'body'}}
     <script src="assets/vendor.js"></script>
     <script src="assets/ember-training.js"></script>
-    <script>
-      window.EmberTraining = require('ember-training/app')['default'].create(EmberTrainingENV.APP);
-    </script>
+    {{content-for 'body-footer'}}
   </body>
 </html>
