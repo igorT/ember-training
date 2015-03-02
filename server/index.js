@@ -14,7 +14,9 @@ module.exports = function(app) {
 
   // Log proxy requests
   var morgan  = require('morgan');
+  var bodyParser = require('body-parser');
   app.use(morgan('dev'));
+  app.use(bodyParser.json());
 
   mocks.forEach(function(route) { route(app); });
   proxies.forEach(function(route) { route(app); });
