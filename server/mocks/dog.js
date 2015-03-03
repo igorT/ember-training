@@ -51,7 +51,7 @@ module.exports = function(app) {
   });
   dogRouter.post('/', function(req, res) {
     var dog = req.body;
-    dog.id = data.length;
+    dog.id = data.length +1;
     data.push(dog);
     res.send(dog);
   });
