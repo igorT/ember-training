@@ -4,6 +4,7 @@
     <button {{action 'save' cat}}>Update</button>
   {{else}}
     {{#link-to 'cat' cat}}
+      id is {{cat.id}}
       <h2>{{cat.name}}</h2>
     {{/link-to}}
     <button {{action 'edit' cat}}>Edit</button>
