@@ -14,12 +14,7 @@ export default DS.Adapter.extend({
     return Ember.$.ajax({
       type: 'put',
       url: '/api/cats/' + record.get('id'),
-      data: JSON.stringify({
-        id: record.get('id'),
-        name: record.get('name'),
-        owner_name: record.get('ownerName'),
-        image: record.get('image'),
-      }),
+      data: JSON.stringify(record.serialize()),
       contentType: 'application/json',
       processData: false
    });
@@ -28,11 +23,7 @@ export default DS.Adapter.extend({
     return Ember.$.ajax({
       type: 'post',
       url: '/api/cats/',
-      data: JSON.stringify({
-        name: record.get('name'),
-        owner_name: record.get('ownerName'),
-        image: record.get('image'),
-      }),
+      data: JSON.stringify(record.serialize()),
       contentType: 'application/json',
       processData: false
    });
