@@ -77,12 +77,10 @@ module.exports = function(app) {
       res.status(422).send({errors: {name: 'Name cannot be null'}});
       return;
     }
-  for(var i = 0; i < data.length; i++) {
     var cat = req.body;
-    cat.id = data.length;
+    cat.id = data.length + 1;
     data.push(cat);
     res.send(cat);
-  }
   });
   app.use('/api/cats', catRouter);
 };
