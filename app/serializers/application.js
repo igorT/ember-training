@@ -1,12 +1,13 @@
 import DS from 'ember-data';
 
 export default DS.Serializer.extend({
-  serialize: function(record, options) {
-    return {
-      id: record.get('id'),
-      name: record.get('name'),
-      owner_name: record.get('ownerName')
-    };
+  serialize: function(snapshot, options) {
+    var hash = {};
+    hash.id = snapshot.get('id');
+    snapshot.eachAttribute((key, attr) => {
+      hash[key] = snapshot.attr(key);
+    });
+    return hash;
   },
 
   normalize: function(type, hash) {
