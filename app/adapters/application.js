@@ -4,9 +4,9 @@ import Ember from 'ember';
 export default DS.Adapter.extend({
   buildURL: function(type, id) {
     if (id !== undefined && id !== null) {
-      return '/api/cats/' + id;
+      return '/api/' + type.typeKey.pluralize() + '/' + id;
     } else {
-      return '/api/cats/';
+      return '/api/' + type.typeKey.pluralize();
     }
   },
   find: function(store, type, id) {
